@@ -1,0 +1,28 @@
+# Jekyll Configutration file
+# Author: Albert Lamme
+#
+#
+# Site settings
+title: Albert Lamme Fotografie
+email: info@albertlamme.nl
+description:
+  Portfolio pagina van fotograaf Albert Lamme. Zijn fotografie is gericht op Landschap en Reisfotografie
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: albertlamme
+github_username:  albertlamme
+
+# Build settings
+markdown: kramdown
+
+
+# Delete this since Jekyll is no longer processing sass.
+sass:
+  sass_dir: assets/styles
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude: ["_dev","Gemfile","Gemfile.lock","node_modules","package.json","gulpfile.js"]
+
+
