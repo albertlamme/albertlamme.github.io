@@ -1,2 +1,5 @@
 #Dependecy direcories
 node_modules
+
+#Cache files
+.sass-cache
