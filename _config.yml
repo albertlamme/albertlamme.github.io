@@ -16,10 +16,6 @@ github_username:  albertlamme
 markdown: kramdown
 
 
-# Delete this since Jekyll is no longer processing sass.
-sass:
-  sass_dir: assets/styles
-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
