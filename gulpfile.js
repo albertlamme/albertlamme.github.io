@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     prefixer = require('gulp-autoprefixer'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
-    cp = require ('child_process'),
+    cp = require('child_process'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     jshint = require('gulp-jshint');
@@ -41,10 +41,10 @@ gulp.task('styles', function(){
     return gulp.src(paths.scss)
         .pipe(sass())
         .pipe(prefixer('last 3 versions'))
-        .pipe(browserSync.reload({stream:true}))
         .pipe(minify())
         .pipe(rename("styles.css"))
-        .pipe(gulp.dest(dist + "/css"));
+        .pipe(gulp.dest(dist + "/css"))
+        .pipe(browserSync.reload({stream:true}));
 });
 
 /**
