@@ -1,0 +1,15 @@
+---
+layout: gallery
+---
+
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+    {% include head.html %}
+    <body>
+        {% include header.html %}
+        <article class="gallery">
+            {{ content }}
+        </article>
+    <script type="text/javascript" src="{{ "assets/js/script.js" | relative_url }}"></script>
+    </body>
+</html>
