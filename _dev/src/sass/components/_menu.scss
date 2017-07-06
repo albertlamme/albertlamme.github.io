@@ -1,3 +1,74 @@
-h1 {
-  color: blue;
+/**
+* Menu
+*/
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 81px;
+  left: 0;
+  height: 0;
+  overflow: hidden;
+  text-align: center;
+  transition: height 1s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  width: 100%;
+  background: $secondaryColor;
+  @include desktop {
+    flex-direction: row;
+    justify-content: flex-end;
+    position: static;
+    height: 60px;
+    li:first-child {
+      position: absolute;
+      left: 36%;
+    }
+    li:nth-of-type(2) {
+      position: absolute;
+      right: 36%;
+    }
+  }
+  &.nav--open {
+    height: 196px;
+  }
 }
+
+.nav__item {
+  margin-left: 0;
+  border-bottom: 1px solid $primaryColor;
+  color: $primaryColor;
+  font-size: $fontSizeBig;
+  padding: 15px 0;
+  text-transform: uppercase;
+  @include desktop {
+    margin-left: 30px;
+    border-bottom: none;
+    line-height: 50px;
+  }
+  .nav__item--active,
+  :hover {
+    text-decoration: underline;
+  }
+}
+
+.nav__toggle {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  left: 20px;
+  top: 25px;
+  width: 30px;
+  @include desktop {
+    display: none;
+  }
+}
+.icon-menu {
+  font-size: $fontSizeIcon;
+  color: $primaryColor;
+  &:before {
+    border: 1px solid $tertiaryColor;
+    border-radius: $radius;
+    padding: 5px;
+  }
+}
+

@@ -1,0 +1,27 @@
+/**
+* Heading
+*/
+
+header {
+  position: relative;
+  height: 80px;
+  border-bottom: 1px solid $primaryColor;
+  background: $secondaryColor;
+  padding: 10px $gutter;
+  box-sizing: border-box;
+  @include desktop {
+    height: 100px;
+    border-bottom: 1px solid $accentColor;
+  }
+}
+
+.logo {
+  width: 100px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  @include desktop {
+    width: 130px;
+  }
+}

@@ -1,6 +1,14 @@
-@import "components/menu";
-@import "helpers/variables";
+/**
+ * Imports
+ */
 
-body {
-  background: $backgroundColor;
-}
+@import "base/reset";
+@import "base/typography";
+@import "helpers/variables";
+@import "helpers/mixins";
+
+@import "base/global";
+
+@import "components/menu";
+
+@import "layout/header";

@@ -7,8 +7,9 @@ title: Albert Lamme Fotografie
 email: info@albertlamme.nl
 description:
   Portfolio pagina van fotograaf Albert Lamme. Zijn fotografie is gericht op Landschap en Reisfotografie
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
 twitter_username: albertlamme
 github_username:  albertlamme
 

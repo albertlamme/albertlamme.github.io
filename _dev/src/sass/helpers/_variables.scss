@@ -3,12 +3,28 @@
  */
 
 
-//Colors
+// Colors
+$primaryColor:          #ffffff;
+$secondaryColor:        #454545;
+$tertiaryColor:         #95989A;
+$accentColor:           #050505;
 
-$backgroundColor:   #ccc;
-$textColor:         #fff;
+
+// Devices
+$tablet-width:          768px;
+$desktop-width:         1024px;
 
 
+// Radius
+$radius:                10px;
 
 
-//
+// Font
+$fontSizeGlobal:        16px;
+$fontSizeBig:           18px;
+$fontSizeH1:            24px;
+$fontSizeIcon:          32px;
+
+
+// Padding
+$gutter:                20px;

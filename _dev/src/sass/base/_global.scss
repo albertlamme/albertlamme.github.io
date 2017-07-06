@@ -1,0 +1,25 @@
+/**
+* Global
+*/
+
+body {
+  background: $secondaryColor;
+  font-family: PT Sans;
+  font-size: $fontSizeGlobal;
+}
+
+article {
+  margin: 40px auto 20px;
+  width: 1024px;
+  padding: $gutter;
+}
+
+a {
+  color: $primaryColor;
+  text-decoration: none;
+}
+
+h1 {
+  color: $primaryColor;
+  font-size: $fontSizeH1;
+}
