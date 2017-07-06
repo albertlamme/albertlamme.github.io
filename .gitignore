@@ -3,3 +3,7 @@ node_modules
 
 #Cache files
 .sass-cache
+
+#Jekyll files
+_site
+assets
