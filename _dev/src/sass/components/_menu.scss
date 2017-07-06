@@ -47,7 +47,8 @@
   }
   .nav__item--active,
   :hover {
-    text-decoration: underline;
+    padding-bottom: 1px;
+    border-bottom: 2px solid $primaryColor;
   }
 }
 
