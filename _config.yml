@@ -10,6 +10,9 @@ description:
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
+includes_dir: _dev/_includes
+layouts_dir:  _dev/_layouts
+
 twitter_username: albertlamme
 github_username:  albertlamme
 

@@ -31,9 +31,10 @@ var base_path = "./",
         js: [src +'/js/*.js',src +'/js/*.min.js'],
         scss: src +'/sass/**/*.scss',
         jekyll: ['index.html','_posts/*','_layouts/*','_includes/*' ,'assets/*','assets/**/*'],
-        img: src + '/images/*.svg',
+        img: [src + '/images/*.svg', src + '/images/*.jpg'],
         fonts: src + '/fonts/**/*.{ttf,woff,eof,svg}',
-        icons: src + '/icons/*.svg'
+        icons: src + '/icons/*.svg',
+        html: base_path + '/*.html'
     };
 
 
@@ -57,7 +58,7 @@ gulp.task('styles', function(){
  */
 
 gulp.task('scripts', function(){
-   return gulp.src(src + "js/script.js")
+   return gulp.src(paths.js)
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(concat('script.js'))
@@ -151,6 +152,7 @@ gulp.task('watch', function(){
     gulp.watch(paths.scss, ['styles']);
     gulp.watch(paths.js, ['scripts']);
     gulp.watch(paths.jekyll, ['jekyll-rebuild']);
+    gulp.watch(paths.html, ['jekyll-rebuild']);
 });
 
 
