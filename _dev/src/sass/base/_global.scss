@@ -6,6 +6,7 @@ body {
   background: $secondaryColor;
   font-family: 'PT Sans', sans-serif;
   font-size: $fontSizeGlobal;
+  color: $primaryColor;
 }
 
 article {
@@ -15,8 +16,8 @@ article {
 }
 
 a {
-  color: $primaryColor;
   text-decoration: none;
+  color: $primaryColor;
 }
 
 h1 {
