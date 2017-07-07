@@ -18,7 +18,7 @@
     flex-direction: row;
     justify-content: flex-end;
     position: static;
-    height: 60px;
+    height: auto;
     li:first-child {
       position: absolute;
       left: 36%;
@@ -63,6 +63,7 @@
     display: none;
   }
 }
+
 .icon-menu {
   font-size: $fontSizeIcon;
   color: $primaryColor;
