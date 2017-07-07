@@ -33,7 +33,8 @@ var base_path = "./",
         jekyll: ['index.html','_posts/*','_layouts/*','_includes/*' ,'assets/*','assets/**/*'],
         img: [src + '/images/*.svg', src + '/images/*.jpg'],
         fonts: src + '/fonts/**/*.{ttf,woff,eof,svg}',
-        icons: src + '/icons/*.svg'
+        icons: src + '/icons/*.svg',
+        html: base_path + '/*.html'
     };
 
 
@@ -151,6 +152,7 @@ gulp.task('watch', function(){
     gulp.watch(paths.scss, ['styles']);
     gulp.watch(paths.js, ['scripts']);
     gulp.watch(paths.jekyll, ['jekyll-rebuild']);
+    gulp.watch(paths.html, ['jekyll-rebuild']);
 });
 
 
