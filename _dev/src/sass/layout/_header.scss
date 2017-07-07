@@ -10,7 +10,7 @@ header {
   padding: 10px $gutter;
   box-sizing: border-box;
   @include desktop {
-    height: 100px;
+    height: auto;
     border-bottom: 1px solid $accentColor;
   }
 }
