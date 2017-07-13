@@ -16,6 +16,8 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     iconfont = require('gulp-iconfont'),
     iconfontCss = require('gulp-iconfont-css'),
+    del = require('del'),
+    concatCss = require('gulp-concat-css');
 
     jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
     messages = { jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'};
@@ -24,7 +26,7 @@ var base_path = "./",
 
 //Directory locations
     src         = base_path + "_dev/src",
-    dist        = base_path + "assets",
+    dist        = "assets",
 
 // Assets locations
     paths = {
@@ -46,10 +48,24 @@ gulp.task('styles', function(){
     return gulp.src(paths.scss)
         .pipe(sass())
         .pipe(prefixer('last 3 versions'))
+        .pipe(gulp.dest(dist + "/css"));
+});
+
+
+/**
+ * Concatenate css files
+ */
+
+gulp.task('concatStyles', ['styles'], function(){
+    return gulp.src(dist + "/css/**")
+        .pipe(concatCss("styles.css"))
         .pipe(minify())
-        .pipe(rename("styles.css"))
         .pipe(gulp.dest(dist + "/css"))
         .pipe(browserSync.reload({stream:true}));
+});
+
+gulp.task('clean', function(){
+    return del('assets/**',{force:true});
 });
 
 
@@ -74,7 +90,7 @@ gulp.task('scripts', function(){
 
 gulp.task('copyfonts', function(){
     return gulp.src(paths.fonts)
-        .pipe(gulp.dest(dist + "/css/fonts"));
+        .pipe(gulp.dest(dist + "/fonts"));
 });
 
 
@@ -84,7 +100,9 @@ gulp.task('copyfonts', function(){
 
 gulp.task('images', function(){
     return gulp.src(paths.img)
-        .pipe(imagemin())
+        .pipe(imagemin(
+            imagemin.jpegtran({progressive: true})
+        ))
         .pipe(gulp.dest(dist + "/images"));
 });
 
@@ -98,15 +116,17 @@ gulp.task('Iconfont', function(){
         .pipe(iconfontCss({
             fontName: 'iconfonts',
             path: src + '/sass/base/_icons.scss',
-            targetPath: "../icons.css",
-            fontPath: "../css/fonts/"
+            targetPath: "../css/icons.css",
+            fontPath: "../fonts/"
         }))
         .pipe(iconfont({
+            normalize: true,
+            fontHeight: 1001,
             fontName: 'iconfonts',
             prependUnicode: true,
             formats: ['ttf','eot','woff','woff2'],
         }))
-        .pipe(gulp.dest(dist + "/css/fonts"));
+        .pipe(gulp.dest(dist + "/fonts"));
 });
 
 
@@ -117,7 +137,7 @@ gulp.task('Iconfont', function(){
 gulp.task('jekyll-build', function(done){
     browserSync.notify(messages.jekyllBuild);
         return cp.spawn(jekyll, ['build'], {stdio: 'inherit'})
-            .on('close', done);
+        .on('close', done);
 });
 
 
@@ -134,7 +154,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function(){
  * Wait for jekyll-build, then launch the Server
  */
 
-gulp.task('browser-sync', ['styles','jekyll-build'], function(){
+gulp.task('browser-sync', ['jekyll-build'], function(){
     browserSync({
         server: {
             baseDir: '_site'
@@ -149,7 +169,7 @@ gulp.task('browser-sync', ['styles','jekyll-build'], function(){
  */
 
 gulp.task('watch', function(){
-    gulp.watch(paths.scss, ['styles']);
+    gulp.watch(paths.scss, ['concatStyles']);
     gulp.watch(paths.js, ['scripts']);
     gulp.watch(paths.jekyll, ['jekyll-rebuild']);
     gulp.watch(paths.html, ['jekyll-rebuild']);
@@ -160,4 +180,4 @@ gulp.task('watch', function(){
  * Default task
  */
 
-gulp.task('default', ['styles','scripts','images','Iconfont','copyfonts','browser-sync','watch']);
+gulp.task('default', ['Iconfont','concatStyles','scripts','images','copyfonts','browser-sync','watch']);
