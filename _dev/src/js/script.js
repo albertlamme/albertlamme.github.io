@@ -71,8 +71,7 @@ $(document).ready(function(){
 
     // Show and hide elements on hover state
     function showAndHide (setHeight,trigger,element,positionBottom,positionTop,topMinus,bottomMinus,startTop,startBottom ){
-        $(trigger).mouseenter(function(event){
-            event.preventDefault();
+        $(trigger).hover(function(){
             if (setHeight < 0) {
                 $(element).stop().animate({
                     top: positionTop,
@@ -84,8 +83,7 @@ $(document).ready(function(){
                     bottom: 0
                 }, normalAnimation);
             }
-        }).mouseleave(function(event){
-            event.preventDefault();
+        }, function(){
             $(element).stop().animate({
                 top: topMinus + startTop,
                 bottom: bottomMinus + startBottom
