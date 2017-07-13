@@ -14,6 +14,20 @@
   transition: height 1s cubic-bezier(0.6, 0.04, 0.98, 0.335);
   width: 100%;
   background: $secondaryColor;
+  @include tablet {
+    flex-direction: row;
+    justify-content: flex-end;
+    position: static;
+    height: auto;
+    li:first-child {
+      position: absolute;
+      left: 30%;
+    }
+    li:nth-of-type(2) {
+      position: absolute;
+      right: 30%;
+    }
+  }
   @include desktop {
     flex-direction: row;
     justify-content: flex-end;
@@ -21,11 +35,11 @@
     height: auto;
     li:first-child {
       position: absolute;
-      left: 36%;
+      left: 32%;
     }
     li:nth-of-type(2) {
       position: absolute;
-      right: 36%;
+      right: 32%;
     }
   }
   &.nav--open {

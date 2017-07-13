@@ -9,6 +9,7 @@ header {
   background: $secondaryColor;
   padding: 10px $gutter;
   box-sizing: border-box;
+  z-index: 4;
   @include desktop {
     height: auto;
     border-bottom: 1px solid $accentColor;

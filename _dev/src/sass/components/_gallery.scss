@@ -5,3 +5,129 @@
 .gallery {
   margin: 0;
 }
+
+
+/*! Version: 2.0.73 (12-Oct-2012) */
+
+.mc-hide-scrolls {
+  overflow: hidden
+}
+
+.mc-cycle {
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1
+}
+
+.mc-image {
+  transition: opacity 1s ease-in-out;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow: hidden;
+  width: 100%
+}
+
+.image__description {
+  display: none;
+  position: absolute;
+  background: red;
+  bottom: 0;
+  right: 0;
+  color: $primaryColor;
+  padding: 5px;
+}
+.mc-old-browser .mc-image {
+  overflow: hidden
+}
+
+.activation__nav {
+  position: fixed;
+  bottom: 0;
+  height: 120px;
+  width: 90%;
+}
+.gallery__nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  background: rgba(0, 0 , 27, 0.6);
+  ul{
+    display: flex;
+    bottom: 0;
+    position: relative;
+    left: 0;
+    li {
+      margin: 5px;
+      position: relative;
+      width: 110px;
+      height: 110px;
+      overflow: hidden;
+      img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        transform: translate(-50%,-50%);
+      }
+    }
+  }
+}
+
+.gallery__navArrow {
+  z-index: 5;
+  top: 20%;
+}
+
+.gallery__arrow {
+  top: 50%;
+}
+
+.gallery__arrow,
+.gallery__navArrow {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.icon-leftArrow,
+.icon-rightArrow,
+.icon-navLeftArrow,
+.icon-navRightArrow {
+  font-size: 60px;
+}
+
+.icon-leftArrow,
+.icon-navLeftArrow {
+  left: $gutter;
+}
+
+.icon-rightArrow,
+.icon-navRightArrow {
+  right: $gutter;
+}
+
+.icon-eye {
+  left: $gutter;
+  top: $gutter;
+  font-size: 16px;
+  opacity: 0.5;
+  position: absolute;
+  z-index: 2;
+}
+
+.icon-info {
+  bottom: $gutter;
+  right: $gutter;
+  position: absolute;
+  opacity: 0.5;
+  font-size: 20px;
+}

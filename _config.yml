@@ -12,6 +12,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 includes_dir: _dev/_includes
 layouts_dir:  _dev/_layouts
+data_dir:  _dev/_data
 
 twitter_username: albertlamme
 github_username:  albertlamme
@@ -19,10 +20,13 @@ github_username:  albertlamme
 # Build settings
 markdown: kramdown
 
+sass:
+    sass_dir: _dev/src/_sass
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-exclude: ["_dev","Gemfile","Gemfile.lock","node_modules","package.json","gulpfile.js"]
+exclude: ["_dev","Gemfile","Gemfile.lock","node_modules","package.json","package-lock.json","gulpfile.js"]
 
 

@@ -1,0 +1,18 @@
+- id: Landscape
+  description: GHallery about landscape photography
+  imagefolder: ../assets/images
+  images:
+  - name: Amoerongse_bovenpolder_1.jpg
+    text: The first image
+  - name: Amoerongse_bovenpolder_2.jpg
+    text: The second image
+  - name: Amoerongse_bovenpolder_3.jpg
+    text: The thirth image
+  - name: Amoerongse_bovenpolder_4.jpg
+    text: The fourth image
+- id: Travel
+  description: Gallery about traveling photography
+  imagefolder: ../assets/images
+  images:
+  - name: schotland-1.jpg
+    text: The first image

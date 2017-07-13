@@ -2,7 +2,31 @@
 layout: gallery
 title: Reizen
 permalink: /reizen/
+galleryid: Travel
 order: 1
 ---
 
-<h1>Reis pagina Albert Lamme Fotografie</h1>
+{% for gallery in site.data.galleries %}
+    {% if gallery.id == page.galleryid %}
+        <div id="Gallery">
+            {% for image in gallery.images %}
+            <div>
+
+                <img src="{{ gallery.imagefolder }}/{{ image.name }}" alt="" />
+                <p class="image__description">{{image.text}}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <i class="icon icon-eye"></i>
+        <i class="icon icon-leftArrow gallery__arrow"></i>
+        <i class="icon icon-rightArrow gallery__arrow"></i>
+        <i class="icon icon-info"></i>
+        <div class="activation__nav">
+            <div class="gallery__nav">
+                <i class="icon icon-navLeftArrow gallery__navArrow"></i>
+                <i class="icon icon-navRightArrow gallery__navArrow"></i>
+                <ul></ul>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
