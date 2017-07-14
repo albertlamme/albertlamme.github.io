@@ -59,6 +59,11 @@
     border-bottom: none;
     line-height: 50px;
   }
+  @include tablet {
+    margin-left: 30px;
+    border-bottom: none;
+    line-height: 50px;
+  }
   .nav__item--active,
   :hover {
     padding-bottom: 1px;

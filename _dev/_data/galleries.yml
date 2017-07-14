@@ -1,6 +1,7 @@
 - id: Landscape
   description: GHallery about landscape photography
   imagefolder: ../assets/images
+  firstphoto: Amoerongse_bovenpolder_1.jpg
   images:
   - name: Amoerongse_bovenpolder_1.jpg
     text: The first image
@@ -13,6 +14,17 @@
 - id: Travel
   description: Gallery about traveling photography
   imagefolder: ../assets/images
+  firstphoto: schotland-1.jpg
   images:
   - name: schotland-1.jpg
+    text: The first image
+  - name: Suriname-1.jpg
+    text: The first image
+  - name: Suriname-2.jpg
+    text: The first image
+  - name: Suriname-3.jpg
+    text: The first image
+  - name: Suriname-4.jpg
+    text: The first image
+  - name: Suriname-5.jpg
     text: The first image

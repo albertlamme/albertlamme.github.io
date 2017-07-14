@@ -8,10 +8,10 @@ order: 1
 
 {% for gallery in site.data.galleries %}
     {% if gallery.id == page.galleryid %}
-        <div id="Gallery">
+        <div class="first-item" style="background-image: url({{ gallery.imagefolder }}/{{ gallery.firstphoto }});background-size:cover"></div>
+        <div id="gallery">
             {% for image in gallery.images %}
             <div>
-
                 <img src="{{ gallery.imagefolder }}/{{ image.name }}" alt="" />
                 <p class="image__description">{{image.text}}</p>
             </div>

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     var headerHeight = $("header").outerHeight();
-    var galleryNav = 120;
+    var galleryNav = $(".gallery__nav").outerHeight();
     var slowAnimation = 200;
     var normalAnimation = 1000;
 
@@ -11,10 +11,17 @@ $(document).ready(function(){
         $('.nav__list').toggleClass('nav--open');
     });
 
+    function firstItemLoad() {
+        windowWidth = $(window).width();
+        windowHeight = $(window).height();
+        $(".first-item").css({width: windowWidth,height: windowHeight});
+    }
+
+    firstItemLoad();
 
     // Gallery
     $(function(){
-        $('#Gallery').maximage({
+        $('#gallery').maximage({
             cssBackgroundSize: false,
             backgroundSize: function($item){
                 // Contain portrait but cover landscape
@@ -31,8 +38,8 @@ $(document).ready(function(){
                 } else {
                     if ($.Window.data('w') / $.Window.data('h') < $item.data('ar')) {
                         $item
-                            .height($.Window.data('h'))
-                            .width(($.Window.data('h') * $item.data('ar')).toFixed(0));
+                            .height('auto')
+                            .width('100%');
                     } else {
                         $item
                             .height(($.Window.data('w') / $item.data('ar')).toFixed(0))
@@ -47,13 +54,14 @@ $(document).ready(function(){
                 prev: '.icon-leftArrow',
                 next: '.icon-rightArrow',
                 pager: '.gallery__nav ul',
-                pagerAnchorBuilder: function(idx, slide) {
-                    var imgsrc = $.Slides[idx].url;
+                pagerAnchorBuilder: function(index) {
+                    var imgsrc = $.Slides[index].url;
                     return '<li><a href="#" rel="nofollow"><img src=' + imgsrc + ' width="50" /></a></li>';
                 }
             },
             onFirstImageLoaded: function(){
-                $('#Gallery').fadeIn();
+                $(".first-item").fadeOut();
+                $("#gallery").fadeIn();
             }
         });
     });
@@ -62,15 +70,12 @@ $(document).ready(function(){
     // Show specific elements only at the start of the page
     setTimeout(function() {
         $("header").animate({top: "-" + headerHeight + "px"}, normalAnimation);
-    },2000);
-
-    setTimeout(function() {
         $(".gallery__nav").animate({bottom: "-" + galleryNav + "px"}, normalAnimation);
+        $(".gallery__arrow").animate({opacity: 0.1}, slowAnimation);
     },2000);
-
 
     // Show and hide elements on hover state
-    function showAndHide (setHeight,trigger,element,positionBottom,positionTop,topMinus,bottomMinus,startTop,startBottom ){
+    function showAndHide (setHeight,trigger,element,positionBottom,positionTop,topMinus,bottomMinus,startTop,startBottom){
         $(trigger).hover(function(){
             if (setHeight < 0) {
                 $(element).stop().animate({
@@ -91,12 +96,9 @@ $(document).ready(function(){
         });
     }
 
-    showAndHide(galleryNav,'.activation__nav','.gallery__nav',120, 'auto',"","-","auto",120);
-    showAndHide(headerHeight,'.activation','header','auto', 0, "-", "", 120, "auto");
+    showAndHide(galleryNav,'.activation__nav','.gallery__nav',120,'auto',"","-","auto",120);
+    showAndHide(headerHeight,'.activation','header','auto', 0, "-", "",120, "auto");
 
-
-    // Navigation slider
-    $(".gallery__arrow").animate({opacity: 0.1}, slowAnimation);
 
     // Show Arrows on hover state
     $(".gallery__arrow").hover(function(){
@@ -109,26 +111,23 @@ $(document).ready(function(){
         event.preventDefault();
         if ($(this).hasClass("icon-navLeftArrow")) {
             movingThumbs(normalAnimation, '+');
-        }
-        else {
+        } else {
             movingThumbs(normalAnimation, '-');
         }
     });
 
 
-
-
     // Navigation in the thumbs
     function movingThumbs(speed, direction){
         var currentLeft = $('.gallery__nav ul').position().left;
-        var thumbwidth =  $('.gallery__nav ul li').width();
+        var thumbWidth =  $('.gallery__nav ul li').width();
         if (direction == '+' && currentLeft != 0) {
             $('.gallery__nav ul').animate({
-                left: '+=' + thumbwidth
+                left: '+=' + thumbWidth
             }, speed);
         } else {
             $('.gallery__nav ul').animate({
-                left: '+='+direction + thumbwidth
+                left: '+='+direction + thumbWidth
             }, speed);
         }
     }

@@ -10,7 +10,11 @@ header {
   padding: 10px $gutter;
   box-sizing: border-box;
   z-index: 4;
-  @include desktop {
+  @include desktop  {
+    height: auto;
+    border-bottom: 1px solid $accentColor;
+  }
+  @include tablet  {
     height: auto;
     border-bottom: 1px solid $accentColor;
   }
@@ -23,6 +27,9 @@ header {
   right: 0;
   margin: auto;
   @include desktop {
+    width: 130px;
+  }
+  @include tablet {
     width: 130px;
   }
 }
